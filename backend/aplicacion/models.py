@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Categoria(models.Model):
@@ -16,9 +17,14 @@ class Valor(models.Model):
         return self.nombre
 
 class Usuario(models.Model):
+    # Relacionar el campo de la tabla auth_user de django con nuestra tabla usuario
+    user = models.OneToOneField(User, on_delete = models.CASCADE, blank = True, null = True)
     nombres = models.CharField(max_length = 60)
+    apellidos = models.CharField(max_length = 60, blank = True, null = True)
     clave = models.CharField(max_length = 300)
     edad = models.IntegerField()
+    fecha_nacimiento = models.DateField(blank = True, null = True)
+    # perfil = models.TextField(max_length = 500, blank = True)
 
     def __str__(self):
         return self.nombres
