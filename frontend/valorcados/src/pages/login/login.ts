@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the LoginPage page.
@@ -27,9 +28,10 @@ export class LoginPage {
   hacerLogin() {
     var data = { 'username': this.Usuario, 'password': this.Clave };
     this.restProvider.login(data)
-      .then(data => {
-        console.log(data);
-      });
+      .then((data: any) => {
+      window.localStorage['token'] = data.key;
+      this.navCtrl.setRoot(HomePage);
+    });
   }
 
 }
