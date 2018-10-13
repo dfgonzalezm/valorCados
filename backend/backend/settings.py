@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'aplicacion',
+<<<<<<< HEAD
     'corsheaders'
+=======
+    'corsheaders',
+>>>>>>> 53aab1b2472def171859adfc86192942167b3ce3
 ]
 
 MIDDLEWARE = [
@@ -84,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'valorcados',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'David.1993',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -137,9 +141,14 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+<<<<<<< HEAD
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:8000',
+=======
+CORS_ORIGIN_WHITELIST = (
+'localhost:8000',
+>>>>>>> 53aab1b2472def171859adfc86192942167b3ce3
 )
 CORS_ALLOW_METHODS = (
     'DELETE',

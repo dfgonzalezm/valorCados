@@ -9,13 +9,17 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class RestProvider {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 53aab1b2472def171859adfc86192942167b3ce3
   apiUrl = 'http://localhost:8000/';
   loginService = 'api/login/';
 
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');
   }
+<<<<<<< HEAD
 
   // Esta función se ejecuta al pulsar el botón 
   login(data) {
@@ -27,6 +31,14 @@ export class RestProvider {
         .subscribe(res => {
           resolve(res);
         // Si hay errores se ejecutar err
+=======
+  login(data) {
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl + this.loginService, data)
+        .subscribe(res => {
+          resolve(res);
+>>>>>>> 53aab1b2472def171859adfc86192942167b3ce3
         }, (err) => {
           reject(err);
         });

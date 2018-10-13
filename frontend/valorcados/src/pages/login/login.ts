@@ -16,15 +16,21 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+<<<<<<< HEAD
 
   usuario: String;
   clave: String;
+=======
+  Usuario: String;
+  Clave: String;
+>>>>>>> 53aab1b2472def171859adfc86192942167b3ce3
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+<<<<<<< HEAD
     if (window.localStorage['token'] != null) {
       this.navCtrl.setRoot(HomePage);
     }
@@ -42,3 +48,16 @@ export class LoginPage {
   }
 
 }
+=======
+  }
+  hacerLogin() {
+    var data = { 'username': this.Usuario, 'password': this.Clave };
+    this.restProvider.login(data)
+      .then((data: any) => {
+      window.localStorage['token'] = data.key;
+      this.navCtrl.setRoot(HomePage);
+    });
+  }
+
+}
+>>>>>>> 53aab1b2472def171859adfc86192942167b3ce3
