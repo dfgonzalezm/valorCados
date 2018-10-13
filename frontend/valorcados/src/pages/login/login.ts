@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RestProvider } from '../../providers/rest/rest';
 
 /**
  * Generated class for the LoginPage page.
@@ -14,12 +15,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  Usuario: String;
+  Clave: String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+  hacerLogin() {
+    var data = { 'username': this.Usuario, 'password': this.Clave };
+    this.restProvider.login(data)
+      .then(data => {
+        console.log(data);
+      });
   }
 
 }
