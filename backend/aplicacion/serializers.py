@@ -13,10 +13,11 @@ class UsuarioSerializer(serializers. ModelSerializer):
     fecha_nacimiento = serializers.DateField(required = False)
 
     # category_name = serializers.RelatedField(source = 'category', read_only = True)
-class Meta:
-    model = User
-    fields = ('id' , 'username' , 'password' , 'nombres' , 'apellidos' ,
-    'clave' , 'edad' , 'fecha_nacimiento' )
+    class Meta:
+        model = User
+        fields = ('id' , 'username' , 'password' , 'nombres' , 'apellidos' ,
+        'clave' , 'edad' , 'fecha_nacimiento' )
+
     def create(self, validated_data, instance = None):
         user_data = validated_data.pop('user' )
         user = User.objects.create(**user_data)
