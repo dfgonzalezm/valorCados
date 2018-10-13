@@ -32,6 +32,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpClient,
+    RestProvider,
     RestProvider
   ]
 })

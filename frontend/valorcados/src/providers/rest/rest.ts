@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -10,22 +10,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
   apiUrl = 'http://localhost:8000/';
-  loginService = 'rest-auth/login/';
+  loginService = 'api/login/';
 
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');
   }
-
-  login(data) {
-
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + this.loginService, data)
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
+  hacerLogin() {
+    var data = { 'username': this.Usuario, 'password': this.Clave };
+    this.restProvider.login(data)
+      .then(data => {
+        console.log(data);
+      });
   }
-
 }
