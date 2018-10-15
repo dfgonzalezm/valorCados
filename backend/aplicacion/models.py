@@ -22,7 +22,6 @@ class Usuario(models.Model):
     nombres = models.CharField(max_length = 60)
     apellidos = models.CharField(max_length = 60, blank = True, null = True)
     clave = models.CharField(max_length = 300)
-    edad = models.IntegerField()
     fecha_nacimiento = models.DateField(blank = True, null = True)
     # perfil = models.TextField(max_length = 500, blank = True)
 
